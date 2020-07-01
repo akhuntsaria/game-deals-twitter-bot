@@ -17,7 +17,7 @@
 	<properties>
 		<commons-io.version>2.7</commons-io.version>
 		<flyway.version>6.5.0</flyway.version>
-		<java.version>14</java.version>
+		<java.version>8</java.version>
 		<postgresql.version>42.2.14</postgresql.version>
 		<spring-boot.version>2.3.1.RELEASE</spring-boot.version>
 		<twitter4j-core.version>4.0.7</twitter4j-core.version>
