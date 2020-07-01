@@ -30,7 +30,7 @@ public class GameDealsBotApplication {
 		SpringApplication.run(GameDealsBotApplication.class, args);
 	}
 
-	@Scheduled(fixedDelay = 30_000) // once every hour
+	@Scheduled(fixedDelay = 360_000) // once every hour
 	protected void scheduled() {
 		redditToTwitterService.findPostAndUpdateStatus();
 	}
