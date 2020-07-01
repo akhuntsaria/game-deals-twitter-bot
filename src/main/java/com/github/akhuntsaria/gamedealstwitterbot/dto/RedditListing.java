@@ -1,4 +1,4 @@
-package com.github.akhuntsaria.gamedealstwitterbot.model;
+package com.github.akhuntsaria.gamedealstwitterbot.dto;
 
 public class RedditListing {
 

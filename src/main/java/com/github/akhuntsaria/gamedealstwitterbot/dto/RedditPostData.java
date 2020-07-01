@@ -1,10 +1,12 @@
-package com.github.akhuntsaria.gamedealstwitterbot.model;
+package com.github.akhuntsaria.gamedealstwitterbot.dto;
 
 public class RedditPostData {
 
     private String name;
 
     private String permalink;
+
+    private int score;
 
     private String title;
 
@@ -24,6 +26,14 @@ public class RedditPostData {
         this.permalink = permalink;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -37,6 +47,7 @@ public class RedditPostData {
         return "RedditPostData{" +
                 "name='" + name + '\'' +
                 ", permalink='" + permalink + '\'' +
+                ", score=" + score +
                 ", title='" + title + '\'' +
                 '}';
     }

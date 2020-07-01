@@ -15,14 +15,33 @@
 	<description>r/GameDeals Twitter bot</description>
 
 	<properties>
+		<commons-io.version>2.7</commons-io.version>
+		<flyway.version>6.5.0</flyway.version>
 		<java.version>14</java.version>
+		<postgresql.version>42.2.14</postgresql.version>
 		<spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+		<twitter4j-core.version>4.0.7</twitter4j-core.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
@@ -31,14 +50,14 @@
 			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.twitter4j</groupId>
-			<artifactId>twitter4j-core</artifactId>
-			<version>4.0.7</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.7</version>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-core</artifactId>
+			<version>${twitter4j-core.version}</version>
 		</dependency>
 	</dependencies>
 
