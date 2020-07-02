@@ -39,11 +39,12 @@ public class TwitterService {
     }
 
     private String getStatusContentFromRedditPost(RedditPost redditPost) {
-        String status = redditPost.getTitle() + " " + "https://reddit.com" + redditPost.getPermalink();
+        String postLink =  "https://reddit.com" + redditPost.getPermalink();
+        String status = redditPost.getTitle() + " " + postLink;
 
         // If compound title is longer that allowed, tweet only link. There doesn't seem to be a limit for links/
         if (status.length() > TWITTER_STATUS_CHAR_LIMIT) {
-            return redditPost.getPermalink();
+            return postLink;
         }
 
         return status;
