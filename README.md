@@ -18,3 +18,9 @@ sudo docker run --rm --name postgres-local
     postgres:12.3
 ```
 * (Optional) Set database credentials in application.properties
+
+# TODO
+* Generalize application (rename, move subreddit name to configuration, etc.)
+* Move hardcoded values to properties (minimum score. etc.)
+* Optionally filter NSFW
+* Filter by maximum age of posts 
