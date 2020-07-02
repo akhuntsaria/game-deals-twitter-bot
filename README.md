@@ -1,11 +1,10 @@
 Functionality: fetch top posts from subreddit r/GameDeals and tweet them via Twitter bot.
 
 # Requirements
-* Java 14+
+* Java 8+
 * Maven 3.6.3+
 * PostgreSQL 12.3+
 * (Optional) Docker version 19.03.8
-* (Optional) IntelliJ IDEA
 
 # Installation
 * Set Twitter API credentials in twitter4j.properties
@@ -18,6 +17,8 @@ sudo docker run --rm --name postgres-local
     postgres:12.3
 ```
 * (Optional) Set database credentials in application.properties
+* Run ```mvn install```
+* Run ```java -jar application-name.jar```
 
 # TODO
 * Generalize application (rename, move subreddit name to configuration, etc.)
