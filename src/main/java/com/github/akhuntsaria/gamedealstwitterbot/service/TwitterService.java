@@ -13,6 +13,8 @@ public class TwitterService {
 
     private static final Logger log = LoggerFactory.getLogger(TwitterService.class);
 
+    private static final int TWITTER_STATUS_CHAR_LIMIT = 280;
+
     /**
      * @return true on success
      */
@@ -21,11 +23,7 @@ public class TwitterService {
         return updateStatus(statusContent);
     }
 
-    private String getStatusContentFromRedditPost(RedditPost redditPost) {
-        return redditPost.getTitle() + " " + "https://reddit.com" + redditPost.getPermalink();
-    }
-
-    private boolean updateStatus(String content) {
+    public boolean updateStatus(String content) {
         try {
             Twitter twitter = TwitterFactory.getSingleton();
             twitter.updateStatus(content);
@@ -38,5 +36,16 @@ public class TwitterService {
 
             return false;
         }
+    }
+
+    private String getStatusContentFromRedditPost(RedditPost redditPost) {
+        String status = redditPost.getTitle() + " " + "https://reddit.com" + redditPost.getPermalink();
+
+        // If compound title is longer that allowed, tweet only link. There doesn't seem to be a limit for links/
+        if (status.length() > TWITTER_STATUS_CHAR_LIMIT) {
+            return redditPost.getPermalink();
+        }
+
+        return status;
     }
 }
