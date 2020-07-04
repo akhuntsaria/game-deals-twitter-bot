@@ -1,5 +1,6 @@
 package com.github.akhuntsaria.reddittotwitterbot.service;
 
+import com.github.akhuntsaria.reddittotwitterbot.config.BotConfiguration;
 import com.github.akhuntsaria.reddittotwitterbot.dto.RedditListing;
 import com.github.akhuntsaria.reddittotwitterbot.dto.RedditPost;
 import org.slf4j.Logger;
@@ -18,21 +19,24 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-//TODO: move subreddit's name to properties
 @Service
 public class RedditService {
 
     private static final Logger log = LoggerFactory.getLogger(RedditService.class);
 
-    private static final String API_NEW_POSTS_ENDPOINT = "https://www.reddit.com/r/gamedeals/new/.json";
-    private static final String API_USER_AGENT = "Reddit-To-Twitter Bot 0.1";
+    // %s is for subreddit's name
+    private static final String API_NEW_POSTS_ENDPOINT = "https://www.reddit.com/r/%s/new/.json";
+    private static final String API_USER_AGENT = "Reddit to Twitter Bot 0.1";
     private static final int POSTS_LIMIT = 100;
     private static final int POST_MINIMUM_SCORE = 50;
 
     private final PostHistoryService postHistoryService;
 
-    public RedditService(PostHistoryService postHistoryService) {
+    private final BotConfiguration botConfiguration;
+
+    public RedditService(PostHistoryService postHistoryService, BotConfiguration botConfiguration) {
         this.postHistoryService = postHistoryService;
+        this.botConfiguration = botConfiguration;
     }
 
     /**
@@ -81,7 +85,9 @@ public class RedditService {
         // User-Agent is set to avoid 'too many requests' errors
         headers.set("User-Agent", API_USER_AGENT);
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(API_NEW_POSTS_ENDPOINT)
+        final String newPostsUrl = String.format(API_NEW_POSTS_ENDPOINT, botConfiguration.getSubreddit());
+
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(newPostsUrl)
                 .queryParam("limit", POSTS_LIMIT);
 
         try {
@@ -94,7 +100,7 @@ public class RedditService {
             RedditListing redditListing = response.getBody();
             List<RedditPost> redditPosts = Objects.requireNonNull(redditListing).getData().getChildren();
 
-            log.debug("Fetched {} new posts from {}", redditPosts.size(), API_NEW_POSTS_ENDPOINT);
+            log.debug("Fetched {} new posts from {}", redditPosts.size(), newPostsUrl);
             return redditPosts;
 
         } catch (Exception e) {
