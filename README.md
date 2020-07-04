@@ -30,9 +30,7 @@ sudo docker run --rm --name postgres-local
 * Run ```java -jar application-name.jar```
 
 # TODO
-* Filter by maximum age of posts 
 * Write tests for Reddit API
 * Optionally delete old post history rows
-* Optimize filtering of already-twitted posts
 * Make it possible to pass properties via program arguments
     * Add default values to properties

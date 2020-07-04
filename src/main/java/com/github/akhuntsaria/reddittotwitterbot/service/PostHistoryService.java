@@ -19,8 +19,8 @@ public class PostHistoryService {
         this.postHistoryRepository = postHistoryRepository;
     }
 
-    public List<String> findRedditPostFullNames() {
-        return postHistoryRepository.findRedditPostFullNames();
+    public boolean postHistoryEntryExists(String postFullName) {
+        return postHistoryRepository.countByRedditPostFullName(postFullName) > 0;
     }
 
     public void save(String postFullName) {

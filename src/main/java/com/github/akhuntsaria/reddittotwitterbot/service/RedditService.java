@@ -47,10 +47,8 @@ public class RedditService {
             return null;
         }
 
-        List<String> postHistoryFullNames = postHistoryService.findRedditPostFullNames();
-
         for (RedditPost post : posts) {
-            if (postHistoryFullNames.contains(post.getName())) {
+            if (postHistoryService.postHistoryEntryExists(post.getName())) {
                 continue;
             }
 
