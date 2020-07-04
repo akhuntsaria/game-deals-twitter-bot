@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//TODO: delete old (> 1 week) post history rows
 @Service
 public class PostHistoryService {
 
