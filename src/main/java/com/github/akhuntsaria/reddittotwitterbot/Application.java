@@ -12,11 +12,11 @@ import java.util.TimeZone;
 @EnableJpaAuditing
 @EnableScheduling
 @SpringBootApplication
-public class RedditToTwitterBotApplication {
+public class Application {
 
 	private final RedditToTwitterService redditToTwitterService;
 
-	public RedditToTwitterBotApplication(RedditToTwitterService redditToTwitterService) {
+	public Application(RedditToTwitterService redditToTwitterService) {
 		this.redditToTwitterService = redditToTwitterService;
 
 		// Setting time zone manually, because it doesn't work in hibernate's properties for some reason.
@@ -25,7 +25,7 @@ public class RedditToTwitterBotApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(RedditToTwitterBotApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Scheduled(fixedDelay = 3600_000) // once every hour
