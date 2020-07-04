@@ -1,10 +1,11 @@
-Fetches top posts from some subreddit and tweets them. Database is used for saving tweeted posts (to prevent tweeting of duplicates).
+# Reddit to Twitter Bot
+Fetches posts from some subreddit and tweets them. Most of the functionality is configurable. Database is used for saving tweeted posts (to prevent tweeting of duplicates).
 
 # Requirements
 * Java 8+
 * Maven 3.6.3+
 * PostgreSQL 12.3+
-* (Optional) Docker version 19.03.8
+* (Optional) Docker version 19+
 
 # Installation
 * Change properties in application.properties
