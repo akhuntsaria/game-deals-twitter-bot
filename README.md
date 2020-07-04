@@ -24,3 +24,8 @@ sudo docker run --rm --name postgres-local
 * Move hardcoded values to properties (minimum score, subreddit name, etc.)
 * Optionally filter NSFW
 * Filter by maximum age of posts 
+* Write tests for Reddit API
+* Optionally delete old post history rows
+* Optimize filtering of already-twitted posts
+* Make it possible to pass properties via program arguments
+    * Add default values to properties
