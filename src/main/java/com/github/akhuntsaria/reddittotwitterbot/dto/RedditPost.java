@@ -11,6 +11,10 @@ public class RedditPost {
         this.data = data;
     }
 
+    public long getCreated() {
+        return this.data.getCreated();
+    }
+
     public String getName() {
        return this.data.getName();
     }

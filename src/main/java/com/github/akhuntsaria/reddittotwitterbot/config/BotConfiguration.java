@@ -9,10 +9,14 @@ public class BotConfiguration {
 
     private boolean allowNsfw;
 
-    private int minimumScore;
+    // in seconds
+    private int maxAge;
+
+    private int minScore;
 
     private String subreddit;
 
+    // in milliseconds
     private int tweetInterval;
 
     private String userAgent;
@@ -25,12 +29,20 @@ public class BotConfiguration {
         this.allowNsfw = allowNsfw;
     }
 
-    public int getMinimumScore() {
-        return minimumScore;
+    public int getMaxAge() {
+        return maxAge;
     }
 
-    public void setMinimumScore(int minimumScore) {
-        this.minimumScore = minimumScore;
+    public void setMaxAge(int maxAge) {
+        this.maxAge = maxAge;
+    }
+
+    public int getMinScore() {
+        return minScore;
+    }
+
+    public void setMinScore(int minScore) {
+        this.minScore = minScore;
     }
 
     public String getSubreddit() {

@@ -2,6 +2,9 @@ package com.github.akhuntsaria.reddittotwitterbot.dto;
 
 public class RedditPostData {
 
+    // timestamp of post creation time
+    private long created;
+
     private String name;
 
     private boolean over_18;
@@ -11,6 +14,14 @@ public class RedditPostData {
     private int score;
 
     private String title;
+
+    public long getCreated() {
+        return created;
+    }
+
+    public void setCreated(long created) {
+        this.created = created;
+    }
 
     public String getName() {
         return name;
@@ -55,7 +66,9 @@ public class RedditPostData {
     @Override
     public String toString() {
         return "RedditPostData{" +
-                "name='" + name + '\'' +
+                "created=" + created +
+                ", name='" + name + '\'' +
+                ", over_18=" + over_18 +
                 ", permalink='" + permalink + '\'' +
                 ", score=" + score +
                 ", title='" + title + '\'' +

@@ -66,13 +66,17 @@ public class RedditService {
      * Filter posts by minimum score and other properties
      */
     private List<RedditPost> getFilteredPosts() {
+        // min created timestamp in seconds
+        long postMinCreated = getCurrentUtcTimestampInSeconds() - botConfiguration.getMaxAge();
+
         List<RedditPost> posts = getNewPosts();
         posts = posts.stream()
-                .filter(redditPost -> redditPost.getScore() >= botConfiguration.getMinimumScore())
+                .filter(redditPost -> redditPost.getScore() >= botConfiguration.getMinScore())
                 .filter(redditPost -> redditPost.isOver18() == botConfiguration.getAllowNsfw())
+                .filter(redditPost -> redditPost.getCreated() >= postMinCreated)
                 .collect(Collectors.toList());
 
-        log.debug("There are {} new posts with score more than {}", posts.size(), botConfiguration.getMinimumScore());
+        log.debug("There are {} new posts with score more than {}", posts.size(), botConfiguration.getMinScore());
 
         // changing order from date DESC to date ASC to tweet posts in correct order
         Collections.reverse(posts);
@@ -111,5 +115,9 @@ public class RedditService {
             e.printStackTrace();
             return new ArrayList<>();
         }
+    }
+
+    private long getCurrentUtcTimestampInSeconds() {
+        return System.currentTimeMillis() / 1000;
     }
 }

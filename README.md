@@ -14,6 +14,7 @@ Fetches top posts from some subreddit and tweets them. Database is used for savi
     * Tweet interval (default is 'once every hour')
     * User agent for Reddit API (to prevent 'too many requests' errors)
     * Allow or not NSFW posts
+    * Maximum age of posts
 * Set Twitter API credentials in twitter4j.properties
 * (Optional) Setup PostgreSQL in Docker
 ```shell script
