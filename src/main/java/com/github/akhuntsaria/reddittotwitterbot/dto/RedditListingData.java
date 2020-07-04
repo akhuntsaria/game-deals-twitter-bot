@@ -1,4 +1,4 @@
-package com.github.akhuntsaria.gamedealstwitterbot.dto;
+package com.github.akhuntsaria.reddittotwitterbot.dto;
 
 import java.util.List;
 

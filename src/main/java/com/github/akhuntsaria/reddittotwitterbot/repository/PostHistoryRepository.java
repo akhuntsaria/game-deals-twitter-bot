@@ -1,6 +1,6 @@
-package com.github.akhuntsaria.gamedealstwitterbot.repository;
+package com.github.akhuntsaria.reddittotwitterbot.repository;
 
-import com.github.akhuntsaria.gamedealstwitterbot.domain.PostHistoryEntry;
+import com.github.akhuntsaria.reddittotwitterbot.domain.PostHistoryEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

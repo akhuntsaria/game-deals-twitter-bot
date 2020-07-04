@@ -1,4 +1,4 @@
-Functionality: fetch top posts from subreddit r/GameDeals and tweet them via Twitter bot.
+Functionality: fetch top posts from some subreddit and tweet them via Twitter bot.
 
 # Requirements
 * Java 14+
@@ -12,7 +12,7 @@ Functionality: fetch top posts from subreddit r/GameDeals and tweet them via Twi
 * (Optional) Setup PostgreSQL in Docker
 ```shell script
 sudo docker run --rm --name postgres-local
-    -e POSTGRES_DB=game_deals_bot
+    -e POSTGRES_DB=reddit_to_twitter_bot
     -e POSTGRES_PASSWORD=12345678
     -d -p 5432:5432
     postgres:12.3
@@ -20,7 +20,6 @@ sudo docker run --rm --name postgres-local
 * (Optional) Set database credentials in application.properties
 
 # TODO
-* Generalize application (rename, move subreddit name to configuration, etc.)
-* Move hardcoded values to properties (minimum score. etc.)
+* Move hardcoded values to properties (minimum score, subreddit name, etc.)
 * Optionally filter NSFW
 * Filter by maximum age of posts 

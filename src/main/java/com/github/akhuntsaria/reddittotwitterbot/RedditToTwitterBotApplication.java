@@ -1,7 +1,6 @@
-package com.github.akhuntsaria.gamedealstwitterbot;
+package com.github.akhuntsaria.reddittotwitterbot;
 
-import com.github.akhuntsaria.gamedealstwitterbot.dto.RedditPost;
-import com.github.akhuntsaria.gamedealstwitterbot.service.RedditToTwitterService;
+import com.github.akhuntsaria.reddittotwitterbot.service.RedditToTwitterService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -10,15 +9,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.TimeZone;
 
-//TODO: rename, generalize project
 @EnableJpaAuditing
 @EnableScheduling
 @SpringBootApplication
-public class GameDealsBotApplication {
+public class RedditToTwitterBotApplication {
 
 	private final RedditToTwitterService redditToTwitterService;
 
-	public GameDealsBotApplication(RedditToTwitterService redditToTwitterService) {
+	public RedditToTwitterBotApplication(RedditToTwitterService redditToTwitterService) {
 		this.redditToTwitterService = redditToTwitterService;
 
 		// Setting time zone manually, because it doesn't work in hibernate's properties for some reason.
@@ -27,7 +25,7 @@ public class GameDealsBotApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(GameDealsBotApplication.class, args);
+		SpringApplication.run(RedditToTwitterBotApplication.class, args);
 	}
 
 	@Scheduled(fixedDelay = 3600_000) // once every hour

@@ -1,6 +1,4 @@
-package com.github.akhuntsaria.gamedealstwitterbot.domain;
-
-import org.springframework.data.annotation.CreatedDate;
+package com.github.akhuntsaria.reddittotwitterbot.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

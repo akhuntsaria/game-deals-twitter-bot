@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.akhuntsaria</groupId>
-	<artifactId>game-deals-twitter-bot</artifactId>
+	<artifactId>reddit-to-twitter-bot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>r/GameDeals Twitter bot</name>
-	<description>r/GameDeals Twitter bot</description>
+	<name>Reddit to Twitter Bot</name>
+	<description>Reddit to Twitter Bot</description>
 
 	<properties>
 		<commons-io.version>2.7</commons-io.version>

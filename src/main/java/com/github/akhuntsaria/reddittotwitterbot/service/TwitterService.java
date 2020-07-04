@@ -1,6 +1,6 @@
-package com.github.akhuntsaria.gamedealstwitterbot.service;
+package com.github.akhuntsaria.reddittotwitterbot.service;
 
-import com.github.akhuntsaria.gamedealstwitterbot.dto.RedditPost;
+import com.github.akhuntsaria.reddittotwitterbot.dto.RedditPost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

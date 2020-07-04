@@ -1,8 +1,7 @@
-package com.github.akhuntsaria.gamedealstwitterbot.service;
+package com.github.akhuntsaria.reddittotwitterbot.service;
 
-import com.github.akhuntsaria.gamedealstwitterbot.domain.PostHistoryEntry;
-import com.github.akhuntsaria.gamedealstwitterbot.dto.RedditPost;
-import com.github.akhuntsaria.gamedealstwitterbot.repository.PostHistoryRepository;
+import com.github.akhuntsaria.reddittotwitterbot.domain.PostHistoryEntry;
+import com.github.akhuntsaria.reddittotwitterbot.repository.PostHistoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
