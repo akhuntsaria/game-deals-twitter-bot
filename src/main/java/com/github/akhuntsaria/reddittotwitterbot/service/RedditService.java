@@ -26,9 +26,7 @@ public class RedditService {
 
     // %s is for subreddit's name
     private static final String API_NEW_POSTS_ENDPOINT = "https://www.reddit.com/r/%s/new/.json";
-    private static final String API_USER_AGENT = "Reddit to Twitter Bot 0.1";
-    private static final int POSTS_LIMIT = 100;
-    private static final int POST_MINIMUM_SCORE = 50;
+    private static final int POSTS_LIMIT = 100; // reddit allows fetching of max 100 posts
 
     private final PostHistoryService postHistoryService;
 
@@ -66,10 +64,10 @@ public class RedditService {
 
     private List<RedditPost> getNewPostsWithMinimumScore() {
         List<RedditPost> posts = getNewPosts();
-        posts = posts.stream().filter(redditPost -> redditPost.getScore() >= POST_MINIMUM_SCORE)
+        posts = posts.stream().filter(redditPost -> redditPost.getScore() >= botConfiguration.getMinimumScore())
                 .collect(Collectors.toList());
 
-        log.debug("There are {} new posts with score more than {}", posts.size(), POST_MINIMUM_SCORE);
+        log.debug("There are {} new posts with score more than {}", posts.size(), botConfiguration.getMinimumScore());
 
         // changing order from date DESC to date ASC to tweet posts in correct order
         Collections.reverse(posts);
@@ -83,7 +81,7 @@ public class RedditService {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         // User-Agent is set to avoid 'too many requests' errors
-        headers.set("User-Agent", API_USER_AGENT);
+        headers.set("User-Agent", botConfiguration.getUserAgent());
 
         final String newPostsUrl = String.format(API_NEW_POSTS_ENDPOINT, botConfiguration.getSubreddit());
 

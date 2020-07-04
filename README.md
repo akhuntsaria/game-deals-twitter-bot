@@ -1,4 +1,4 @@
-Functionality: fetch top posts from some subreddit and tweet them via Twitter bot.
+Fetches top posts from some subreddit and tweets them. Database is used for saving tweeted posts (to prevent tweeting of duplicates).
 
 # Requirements
 * Java 8+
@@ -7,6 +7,12 @@ Functionality: fetch top posts from some subreddit and tweet them via Twitter bo
 * (Optional) Docker version 19.03.8
 
 # Installation
+* Change properties in application.properties
+    * Database credentials
+    * Subreddit's name
+    * Minimum score of Reddit post
+    * Tweet interval (default is 'once every hour')
+    * User agent for Reddit API (to prevent 'too many requests' errors)
 * Set Twitter API credentials in twitter4j.properties
 * (Optional) Setup PostgreSQL in Docker
 ```shell script
@@ -21,7 +27,6 @@ sudo docker run --rm --name postgres-local
 * Run ```java -jar application-name.jar```
 
 # TODO
-* Move hardcoded values to properties (minimum score, subreddit name, etc.)
 * Optionally filter NSFW
 * Filter by maximum age of posts 
 * Write tests for Reddit API

@@ -28,7 +28,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Scheduled(fixedDelay = 3600_000) // once every hour
+	@Scheduled(fixedDelayString = "${reddit-to-twitter-bot.tweet-interval}")
 	protected void scheduled() {
 		redditToTwitterService.findPostAndUpdateStatus();
 	}
