@@ -4,6 +4,8 @@ public class RedditPostData {
 
     private String name;
 
+    private boolean over_18;
+
     private String permalink;
 
     private int score;
@@ -16,6 +18,14 @@ public class RedditPostData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isOver18() {
+        return over_18;
+    }
+
+    public void setOver18(boolean over_18) {
+        this.over_18 = over_18;
     }
 
     public String getPermalink() {

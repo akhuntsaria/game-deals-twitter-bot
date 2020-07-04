@@ -23,7 +23,7 @@ public class RedditToTwitterService {
     }
 
     public void findPostAndUpdateStatus() {
-        RedditPost post = redditService.getNewPostWithMinimumScore();
+        RedditPost post = redditService.getFilteredPost();
 
         if (post == null) {
             log.info("No matching posts were found.");

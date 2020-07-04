@@ -38,10 +38,10 @@ public class RedditService {
     }
 
     /**
-     * Return post with which haven't been tweeted yet and with score >= POST_MINIMUM_SCORE.
+     * Return post with which haven't been tweeted yet and which matches filter properties.
      */
-    public RedditPost getNewPostWithMinimumScore() {
-        List<RedditPost> posts = getNewPostsWithMinimumScore();
+    public RedditPost getFilteredPost() {
+        List<RedditPost> posts = getFilteredPosts();
 
         if (posts.size() == 0) {
             return null;
@@ -62,9 +62,14 @@ public class RedditService {
         return null;
     }
 
-    private List<RedditPost> getNewPostsWithMinimumScore() {
+    /**
+     * Filter posts by minimum score and other properties
+     */
+    private List<RedditPost> getFilteredPosts() {
         List<RedditPost> posts = getNewPosts();
-        posts = posts.stream().filter(redditPost -> redditPost.getScore() >= botConfiguration.getMinimumScore())
+        posts = posts.stream()
+                .filter(redditPost -> redditPost.getScore() >= botConfiguration.getMinimumScore())
+                .filter(redditPost -> redditPost.isOver18() == botConfiguration.getAllowNsfw())
                 .collect(Collectors.toList());
 
         log.debug("There are {} new posts with score more than {}", posts.size(), botConfiguration.getMinimumScore());

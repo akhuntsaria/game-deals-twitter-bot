@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "reddit-to-twitter-bot")
 public class BotConfiguration {
 
+    private boolean allowNsfw;
+
     private int minimumScore;
 
     private String subreddit;
@@ -14,6 +16,14 @@ public class BotConfiguration {
     private int tweetInterval;
 
     private String userAgent;
+
+    public boolean getAllowNsfw() {
+        return allowNsfw;
+    }
+
+    public void setAllowNsfw(boolean allowNsfw) {
+        this.allowNsfw = allowNsfw;
+    }
 
     public int getMinimumScore() {
         return minimumScore;

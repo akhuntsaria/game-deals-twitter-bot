@@ -13,6 +13,7 @@ Fetches top posts from some subreddit and tweets them. Database is used for savi
     * Minimum score of Reddit post
     * Tweet interval (default is 'once every hour')
     * User agent for Reddit API (to prevent 'too many requests' errors)
+    * Allow or not NSFW posts
 * Set Twitter API credentials in twitter4j.properties
 * (Optional) Setup PostgreSQL in Docker
 ```shell script
@@ -27,7 +28,6 @@ sudo docker run --rm --name postgres-local
 * Run ```java -jar application-name.jar```
 
 # TODO
-* Optionally filter NSFW
 * Filter by maximum age of posts 
 * Write tests for Reddit API
 * Optionally delete old post history rows

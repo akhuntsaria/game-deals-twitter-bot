@@ -15,6 +15,10 @@ public class RedditPost {
        return this.data.getName();
     }
 
+    public boolean isOver18() {
+        return this.data.isOver18();
+    }
+
     public String getPermalink() {
         return this.data.getPermalink();
     }
