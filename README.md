@@ -1,6 +1,9 @@
 # Reddit to Twitter Bot
 Fetches posts from some subreddit and tweets them. Most of the functionality is configurable. Database is used for saving tweeted posts (to prevent tweeting of duplicates).
 
+# Demo
+https://twitter.com/gamedeals_bot
+
 # Requirements
 * Java 8+
 * Maven 3.6.3+
@@ -34,3 +37,4 @@ sudo docker run --rm --name postgres-local
 * Optionally delete old post history rows
 * Make it possible to pass properties via program arguments
     * Add default values to properties
+* Add support for appending hashtags to tweets
