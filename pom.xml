@@ -17,6 +17,7 @@
 	<properties>
 		<commons-io.version>2.7</commons-io.version>
 		<flyway.version>6.5.0</flyway.version>
+		<h2.version>1.4.200</h2.version>
 		<java.version>8</java.version>
 		<postgresql.version>42.2.14</postgresql.version>
 		<spring-boot.version>2.3.1.RELEASE</spring-boot.version>
@@ -48,6 +49,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+			<version>${h2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
