@@ -5,10 +5,10 @@ Fetches posts from some subreddit and tweets them. Most of the functionality is 
 https://twitter.com/gamedeals_bot
 
 # Requirements
-* Java 8+
-* Maven 3.6.3+
-* PostgreSQL 12.3+
-* (Optional) Docker version 19+
+* Java 8.*
+* Maven 3.*
+* PostgreSQL 12.*
+* (Optional) Docker version 19.*
 
 # Installation
 * Change properties in application.properties
