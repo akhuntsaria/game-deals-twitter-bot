@@ -22,10 +22,10 @@ https://twitter.com/gamedeals_bot
 * Set Twitter API credentials in twitter4j.properties
 * (Optional) Setup PostgreSQL in Docker
 ```shell script
-sudo docker run --rm --name postgres-local
-    -e POSTGRES_DB=reddit_to_twitter_bot
-    -e POSTGRES_PASSWORD=12345678
-    -d -p 5432:5432
+sudo docker run --rm --name postgres-local \
+    -e POSTGRES_DB=reddit_to_twitter_bot \
+    -e POSTGRES_PASSWORD=12345678 \
+    -d -p 5432:5432 \
     postgres:12.3
 ```
 * (Optional) Set database credentials in application.properties
