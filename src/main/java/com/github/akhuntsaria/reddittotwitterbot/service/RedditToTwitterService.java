@@ -1,5 +1,6 @@
 package com.github.akhuntsaria.reddittotwitterbot.service;
 
+import com.github.akhuntsaria.reddittotwitterbot.domain.PostHistoryEntry;
 import com.github.akhuntsaria.reddittotwitterbot.dto.RedditPost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +36,7 @@ public class RedditToTwitterService {
         boolean updatedSuccessfully = twitterService.updateStatus(post);
 
         if (updatedSuccessfully) {
-            postHistoryService.save(post.getName());
+            postHistoryService.save(new PostHistoryEntry(post.getName()));
         }
     }
 }

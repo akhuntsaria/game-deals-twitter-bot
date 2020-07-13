@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PostHistoryService {
 
@@ -23,10 +21,10 @@ public class PostHistoryService {
         return postHistoryRepository.countByRedditPostFullName(postFullName) > 0;
     }
 
-    public void save(String postFullName) {
-        PostHistoryEntry postHistoryEntry = new PostHistoryEntry(postFullName);
+    public PostHistoryEntry save(PostHistoryEntry postHistoryEntry) {
         postHistoryEntry = postHistoryRepository.save(postHistoryEntry);
 
         log.debug("Save new post history entry: {}", postHistoryEntry.toString());
+        return postHistoryEntry;
     }
 }
