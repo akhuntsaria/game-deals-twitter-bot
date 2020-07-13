@@ -25,7 +25,7 @@ public class PostHistoryEntry implements Serializable {
      * https://www.reddit.com/dev/api/#listings
      * type + id, e.g. t3_15bfi0
      */
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String redditPostFullName;
 
     public PostHistoryEntry() {
