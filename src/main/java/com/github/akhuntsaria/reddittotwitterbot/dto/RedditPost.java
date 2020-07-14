@@ -1,7 +1,12 @@
 package com.github.akhuntsaria.reddittotwitterbot.dto;
 
 public class RedditPost {
+
     private RedditPostData data;
+
+    public RedditPost() {
+        data = new RedditPostData();
+    }
 
     public RedditPostData getData() {
         return data;
