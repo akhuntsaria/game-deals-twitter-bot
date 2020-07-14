@@ -9,7 +9,9 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PostHistoryServiceTest {
@@ -22,8 +24,8 @@ public class PostHistoryServiceTest {
 
     @Test
     public void testPostHistoryEntryExists() {
-        given(postHistoryRepository.countByRedditPostFullName("t1_something")).willReturn(1L);
-        given(postHistoryRepository.countByRedditPostFullName("t1_something_else")).willReturn(0L);
+        when(postHistoryRepository.countByRedditPostFullName("t1_something")).thenReturn(1L);
+        when(postHistoryRepository.countByRedditPostFullName("t1_something_else")).thenReturn(0L);
 
         assertThat(postHistoryService.postHistoryEntryExists("t1_something")).isEqualTo(true);
         assertThat(postHistoryService.postHistoryEntryExists("t1_something_else")).isEqualTo(false);
@@ -32,8 +34,10 @@ public class PostHistoryServiceTest {
     @Test
     public void testSave() {
         PostHistoryEntry postHistoryEntry = new PostHistoryEntry("t1_something");
-        given(postHistoryRepository.save(postHistoryEntry)).willReturn(postHistoryEntry);
+
+        when(postHistoryRepository.save(any(PostHistoryEntry.class))).thenReturn(postHistoryEntry);
 
         assertThat(postHistoryService.save(postHistoryEntry)).isEqualTo(postHistoryEntry);
+        verify(postHistoryRepository).save(any(PostHistoryEntry.class));
     }
 }

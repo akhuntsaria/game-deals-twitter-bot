@@ -64,7 +64,7 @@ public class RedditService {
     /**
      * Filter posts by minimum score and other properties
      */
-    private List<RedditPost> getFilteredPosts() {
+    public List<RedditPost> getFilteredPosts() {
         // min created timestamp in seconds
         long postMinCreated = DateUtil.getCurrentUtcTimestampInSeconds() - botConfiguration.getMaxAge();
 
@@ -85,7 +85,7 @@ public class RedditService {
     /**
      * Fetch POSTS_LIMIT posts from API_NEW_POSTS_ENDPOINT sorted by date descending.
      */
-    private List<RedditPost> getNewPosts() {
+    public List<RedditPost> getNewPosts() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         // User-Agent is set to avoid 'too many requests' errors

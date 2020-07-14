@@ -33,8 +33,11 @@ sudo docker run --rm --name postgres-local \
 * Run ```java -jar application-name.jar```
 
 # TODO
-* Write tests for Reddit API
 * Optionally delete old post history rows
 * Make it possible to pass properties via program arguments
     * Add default values to properties
 * Add support for appending hashtags to tweets
+* Tests
+    * RedditServiceTest: seems like getNewPosts is called on every test execution, that's redundant.
+    * Write tests for Reddit API 
+    * Add code coverage badge
