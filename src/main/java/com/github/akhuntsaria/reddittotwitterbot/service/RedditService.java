@@ -3,6 +3,7 @@ package com.github.akhuntsaria.reddittotwitterbot.service;
 import com.github.akhuntsaria.reddittotwitterbot.config.BotConfiguration;
 import com.github.akhuntsaria.reddittotwitterbot.dto.RedditListing;
 import com.github.akhuntsaria.reddittotwitterbot.dto.RedditPost;
+import com.github.akhuntsaria.reddittotwitterbot.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -65,7 +66,7 @@ public class RedditService {
      */
     private List<RedditPost> getFilteredPosts() {
         // min created timestamp in seconds
-        long postMinCreated = getCurrentUtcTimestampInSeconds() - botConfiguration.getMaxAge();
+        long postMinCreated = DateUtil.getCurrentUtcTimestampInSeconds() - botConfiguration.getMaxAge();
 
         List<RedditPost> posts = getNewPosts();
         posts = posts.stream()
@@ -113,9 +114,5 @@ public class RedditService {
             e.printStackTrace();
             return new ArrayList<>();
         }
-    }
-
-    private long getCurrentUtcTimestampInSeconds() {
-        return System.currentTimeMillis() / 1000;
     }
 }
