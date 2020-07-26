@@ -5,7 +5,7 @@ Fetches posts from some subreddit and tweets them. Most of the functionality is 
 https://twitter.com/gamedeals_bot
 
 # Requirements
-* Java 8.*
+* Java 11.*
 * Maven 3.*
 * PostgreSQL 12.*
 * (Optional) Docker version 19.*
@@ -37,7 +37,3 @@ sudo docker run --rm --name postgres-local \
 * Make it possible to pass properties via program arguments
     * Add default values to properties
 * Add support for appending hashtags to tweets
-* Tests
-    * RedditServiceTest: seems like getNewPosts is called on every test execution, that's redundant.
-    * Write tests for Reddit API 
-    * Add code coverage badge
