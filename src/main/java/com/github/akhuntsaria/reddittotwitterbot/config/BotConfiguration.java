@@ -21,6 +21,8 @@ public class BotConfiguration {
 
     private String userAgent;
 
+    private int limitOfPostsToDownload = 100; // Reddit allows fetching of max 100 posts
+
     public boolean getAllowNsfw() {
         return allowNsfw;
     }
@@ -67,5 +69,13 @@ public class BotConfiguration {
 
     public void setUserAgent(String userAgent) {
         this.userAgent = userAgent;
+    }
+
+    public int getLimitOfPostsToDownload() {
+        return limitOfPostsToDownload;
+    }
+
+    public void setLimitOfPostsToDownload(int limitOfPostsToDownload) {
+        this.limitOfPostsToDownload = limitOfPostsToDownload;
     }
 }

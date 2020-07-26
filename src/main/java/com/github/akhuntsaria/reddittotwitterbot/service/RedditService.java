@@ -27,7 +27,6 @@ public class RedditService {
 
     // %s is for subreddit's name
     private static final String API_NEW_POSTS_ENDPOINT = "https://www.reddit.com/r/%s/new/.json";
-    private static final int POSTS_LIMIT = 100; // reddit allows fetching of max 100 posts
 
     private final PostHistoryService postHistoryService;
 
@@ -94,7 +93,7 @@ public class RedditService {
         final String newPostsUrl = String.format(API_NEW_POSTS_ENDPOINT, botConfiguration.getSubreddit());
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(newPostsUrl)
-                .queryParam("limit", POSTS_LIMIT);
+                .queryParam("limit", botConfiguration.getLimitOfPostsToDownload());
 
         try {
             HttpEntity<RedditListing> response = (new RestTemplate()).exchange(
